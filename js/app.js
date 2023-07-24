@@ -118,11 +118,12 @@ fileInput.addEventListener("change", (event) => {
 });
 
 const formSubmit = document.querySelector("#formSubmit");
-
+console.log(formSubmit);
 
 formSubmit.addEventListener("click", (e) => {
   e.preventDefault(); // prevent default submit behavior
 
+  console.log("form submitted");
   const selectedSurah = surahSelect.options[surahSelect.selectedIndex].value;
   const selectedAyat = ayatSelect.options[ayatSelect.selectedIndex].value;
   let audioData;
@@ -155,5 +156,8 @@ formSubmit.addEventListener("click", (e) => {
       console.log(data);
     }
     );
+
+
+
 
 });
