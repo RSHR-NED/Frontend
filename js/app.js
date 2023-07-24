@@ -107,7 +107,7 @@ stopRecord.onclick = (e) => {
 
 // ============== Get user input ================
 
-const qariSelect = document.querySelector("#qari");
+const surahSelect = document.querySelector("#surah");
 const ayatSelect = document.querySelector("#ayat");
 
 const fileInput = document.getElementById("file");
@@ -123,7 +123,7 @@ const formSubmit = document.querySelector("#formSubmit");
 formSubmit.addEventListener("click", (e) => {
   e.preventDefault(); // prevent default submit behavior
 
-  const selectedQari = qariSelect.options[qariSelect.selectedIndex].value;
+  const selectedSurah = surahSelect.options[surahSelect.selectedIndex].value;
   const selectedAyat = ayatSelect.options[ayatSelect.selectedIndex].value;
   let audioData;
   if(recordAudioBlob != undefined){
@@ -134,10 +134,26 @@ formSubmit.addEventListener("click", (e) => {
     
   }
   console.log({
-    selectedQari,
+    selectedSurah,
     selectedAyat,
     audioData,
   })
-  
+
+  // send data to server
+  const formData = new FormData();
+  formData.append("surah_number", parseInt(selectedSurah));
+  formData.append("ayat_number", parseInt(selectedAyat));
+  formData.append("audio_file", audioData);
+
+  // call api, preventting page from relaoding after receiving response
+  fetch("http://localhost:5000/api/ayat_accuracy", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    }
+    );
 
 });
