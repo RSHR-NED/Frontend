@@ -32,7 +32,7 @@ def ayat_accuracy():
     print(f"surah_number: {surah_number}, ayat_number: {ayat_number}")
 
     # return f"surah_number: {surah_number}, ayat_number: {ayat_number}"
-    return jsonify({'success': 'true'}), 200
+    return jsonify({'success': 'true', 'surah_number': surah_number, "ayat_number": ayat_number}), 200
 
 
 if __name__ == "__main__":

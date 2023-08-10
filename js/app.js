@@ -120,19 +120,19 @@ fileInput.addEventListener("change", (event) => {
 const formSubmit = document.querySelector("#formSubmit");
 console.log(formSubmit);
 
+let formSubmissions = {};
+
 formSubmit.addEventListener("click", (e) => {
   e.preventDefault(); // prevent default submit behavior
 
   console.log("form submitted");
-  const selectedSurah = surahSelect.options[surahSelect.selectedIndex].value;
-  const selectedAyat = ayatSelect.options[ayatSelect.selectedIndex].value;
+  let selectedSurah = surahSelect.options[surahSelect.selectedIndex].value;
+  let selectedAyat = ayatSelect.options[ayatSelect.selectedIndex].value;
   let audioData;
   if(recordAudioBlob != undefined){
     audioData = recordAudioBlob;
-   
   } else{
     audioData = file;
-    
   }
   console.log({
     selectedSurah,
@@ -140,24 +140,68 @@ formSubmit.addEventListener("click", (e) => {
     audioData,
   })
 
-  // send data to server
-  const formData = new FormData();
-  formData.append("surah_number", parseInt(selectedSurah));
-  formData.append("ayat_number", parseInt(selectedAyat));
-  formData.append("audio_file", audioData);
+  // store response in formResponses object for sending to server later
+  let current_key = selectedSurah + "_" + selectedAyat;
+  formSubmissions[current_key] = audioData;
 
-  // call api, preventting page from relaoding after receiving response
-  fetch("http://localhost:5000/api/ayat_accuracy", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    }
+  // mark ayat as uploaded
+  let ayat_element;
+  let ayat_number = parseInt(selectedAyat) - 1;
+  if (ayat_number == 0) {
+    ayat_element = document.querySelector("#bismillah_ayat");
+  }
+  else {
+    let arabicAyats = document.querySelector(".arabic-ayats");
+    ayat_element = arabicAyats.querySelector(`span:nth-child(${ayat_number})`).querySelector("span");
+  }
+  ayat_element.style.color = "#ff9822";
+  ayat_element.style.backgroundColor = "black";
+
+});
+
+
+
+document.getElementById("check_prediction").addEventListener("click", (e) => {
+  e.preventDefault();
+  
+  let all_results = [];
+  let fetch_promises = []; // Corrected variable name
+  console.log("Starting predictions");
+  
+  for (let key in formSubmissions) {
+    let surah_number = key.split("_")[0];
+    let ayat_number = key.split("_")[1];
+    let current_audio = formSubmissions[key];
+
+    let formData = new FormData();
+    formData.append("surah_number", surah_number);
+    formData.append("ayat_number", ayat_number);
+    formData.append("audio_file", current_audio);
+
+    console.log("Calling backend for predicting surah " + surah_number + " ayat " + ayat_number);
+
+    
+    // Push the fetch promise into the array
+    fetch_promises.push(
+      fetch("http://127.0.0.1:5000/api/ayat_accuracy", {
+        method: "POST",
+        body: formData,
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        all_results.push(data);
+      })
     );
+  }
 
+  // Use Promise.all to wait for all fetch promises to complete
+  Promise.all(fetch_promises)
+    .then(() => {
+      const encodedResults = encodeURIComponent(JSON.stringify(all_results));
+      console.log(encodedResults);
 
-
-
+      // Redirect to the results page with the encoded results
+      window.location.href = "/prediction-source.html?results=" + encodedResults;
+    });
 });
