@@ -140,6 +140,12 @@ formSubmit.addEventListener("click", (e) => {
     audioData,
   })
 
+  // if no audio file is selected, return
+  if (audioData == undefined) {
+    alert("Please select an audio file");
+    return;
+  }
+
   // store response in formResponses object for sending to server later
   let current_key = selectedSurah + "_" + selectedAyat;
   formSubmissions[current_key] = audioData;
@@ -161,13 +167,59 @@ formSubmit.addEventListener("click", (e) => {
 
 
 
-document.getElementById("check_prediction").addEventListener("click", (e) => {
+// document.getElementById("check_prediction").addEventListener("click", (e) => {
+//   e.preventDefault();
+  
+//   let all_results = [];
+//   let fetch_promises = []; // Corrected variable name
+//   console.log("Starting predictions");
+  
+//   for (let key in formSubmissions) {
+//     let surah_number = key.split("_")[0]; 
+//     let ayat_number = key.split("_")[1];
+//     let current_audio = formSubmissions[key];
+
+//     let formData = new FormData();
+//     formData.append("surah_number", surah_number);
+//     formData.append("ayat_number", ayat_number);
+//     formData.append("audio_file", current_audio);
+
+//     console.log("Calling backend for predicting surah " + surah_number + " ayat " + ayat_number);
+
+    
+//     // Push the fetch promise into the array
+//     fetch_promises.push(
+//       fetch("http://127.0.0.1:5000/api/ayat_accuracy", {
+//         method: "POST",
+//         body: formData,
+//       })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log(data);
+//         all_results.push(data);
+//       })
+//     );
+//   }
+
+//   // Use Promise.all to wait for all fetch promises to complete
+//   Promise.all(fetch_promises)
+//     .then(() => {
+//       const encodedResults = encodeURIComponent(JSON.stringify(all_results));
+//       console.log(encodedResults);
+
+//       // Redirect to the results page with the encoded results
+//       window.location.href = "/prediction-source.html?results=" + encodedResults;
+//     });
+// });
+
+
+document.getElementById("check_prediction").addEventListener("click", async (e) => {
   e.preventDefault();
   
+  // Clear previous results
   let all_results = [];
-  let fetch_promises = []; // Corrected variable name
-  console.log("Starting predictions");
-  
+
+  // Loop through form submissions
   for (let key in formSubmissions) {
     let surah_number = key.split("_")[0];
     let ayat_number = key.split("_")[1];
@@ -180,28 +232,23 @@ document.getElementById("check_prediction").addEventListener("click", (e) => {
 
     console.log("Calling backend for predicting surah " + surah_number + " ayat " + ayat_number);
 
-    
-    // Push the fetch promise into the array
-    fetch_promises.push(
-      fetch("http://127.0.0.1:5000/api/ayat_accuracy", {
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/ayat_accuracy", {
         method: "POST",
         body: formData,
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        all_results.push(data);
-      })
-    );
+      });
+      const data = await response.json();
+      console.log(data);
+      all_results.push(data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  // Use Promise.all to wait for all fetch promises to complete
-  Promise.all(fetch_promises)
-    .then(() => {
-      const encodedResults = encodeURIComponent(JSON.stringify(all_results));
-      console.log(encodedResults);
+  // After all fetch requests are done, proceed with redirection
+  const encodedResults = encodeURIComponent(JSON.stringify(all_results));
+  console.log(encodedResults);
 
-      // Redirect to the results page with the encoded results
-      window.location.href = "/prediction-source.html?results=" + encodedResults;
-    });
+  // Redirect to the results page with the encoded results
+  window.location.href = "/prediction-source.html?results=" + encodedResults;
 });
