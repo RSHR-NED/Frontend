@@ -1,0 +1,495 @@
+/* ============================ Home Page ===============================*/
+
+/* Start of Hero Section */
+.main_container_section {
+  min-height: 100vh;
+  background: url("../images/mainbg.jpg") no-repeat center;
+  background-size: cover;
+  background-position: center;
+}
+.main_container_home_content {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  align-items: center;
+}
+.main_container_home_upper_image {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 21%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+}
+
+.main_container_home_upper_image-img {
+  height: 250px;
+  width: 450px;
+}
+.main_container_arabic-text {
+  font-size: 4rem;
+  color: var(--white);
+}
+
+.main_container_home-heading {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.main_container_home_content-seperater {
+  border: 2px solid var(--yellow);
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 3px;
+}
+.main_container_home_content-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.main_container_home_content-btn-span {
+  font-size: 4rem;
+  color: var(--white);
+}
+
+@media only screen and (max-width: 425px) {
+  .main_container_arabic-text {
+    font-size: 2rem;
+  }
+
+  .main_container_home-heading {
+    font-size: 1.1rem;
+  }
+  .main_container_home_upper_image-img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* END of Hero Section */
+
+/* Start of Vision and Mission */
+
+
+.main_container_home_vission_section_content {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.main_container_home_vission_section_vission,
+.main_container_home_vission_section_mission {
+  margin: 20px 40px;
+}
+.main_container_home_vission_section-text {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+@media only screen and (max-width: 425px) {
+  .main_container_home_vission_section_vission,
+  .main_container_home_vission_section_mission {
+    margin: 10px;
+    display: grid;
+    grid-gap: 0;
+  }
+  .main_container_home_vission_section-text {
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+}
+
+/* End Of Vision and Mission */
+
+/* Start of About */
+.about__section {
+  padding-top: 40px;
+  background: url("/public/images/bg.webp") no-repeat center;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.about__main__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-gap: 0.7rem;
+}
+
+.about__main__container__left {
+  margin: auto;
+}
+
+.about__main__container__left-text {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.about__main__container__right {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.about-img {
+  height: 300px !important;
+  width: 500px !important;
+  overflow: auto;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+@media only screen and (max-width: 768px) {
+  .about__main__container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 0;
+    margin: 0%;
+  }
+
+  .about__main__container__left-text {
+    font-size: 1rem;
+  }
+
+  .about__main__container__right-img {
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .about__main__container__left {
+    margin: auto 2px;
+  }
+
+  .about-img {
+    height: 350px !important;
+    width: 350px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .about__main__container__left {
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .about__main__container {
+    padding: 10px;
+    margin: 0%;
+  }
+
+  .about__main__container__left {
+    margin: 10px;
+  }
+
+  .about__main__container__left-text {
+    font-size: 1rem;
+  }
+
+  .about__main__container__left-heading {
+    font-size: 1.4rem;
+  }
+
+  .about__main__container__right-img {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .about__main__container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 0;
+    margin: 0%;
+  }
+
+  .about__main__container__right-img {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.about-img {
+  width: 800px;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-img {
+    height: 300px !important;
+    width: 300px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .about-img {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .main__container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .about-img {
+    height: 250px !important;
+    width: 250px !important;
+  }
+}
+/* End of About */
+/* ============================== End of Home Page =====================================*/
+
+/* ============================= Get Started Page ===================================== */
+.get-started-section {
+  padding: 40px 0;
+}
+
+/* Section */
+.main_section_component_heading {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.main_heading_container {
+  text-align: center;
+}
+
+.main_left_section_component_heading {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.main_left_heading_container {
+  text-align: left;
+}
+
+.main_container_choose_section_content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.main_container_choose_section_left-text {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 2;
+  width: 50%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .main_container_choose_section_content {
+    margin: 10px;
+    padding: 0px !important;
+  }
+  .main_container_choose_section_left-text {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  .main_container_choose_section_right {
+    width: 100% !important;
+  }
+}
+
+/* Form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.form input,
+.input-form {
+  margin: 10px 0;
+  padding: 5px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--hover-color);
+  border: 1px solid var(--border);
+}
+input:focus {
+  border: 1px solid var(--yellow);
+}
+
+#contact {
+  margin: 10px 0;
+}
+.btn-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.contact-box-shodow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--box-shadow);
+  margin: 30px 0;
+  padding: 15px;
+  background-color: var(--white);
+  border-radius: 6px;
+  background: url("../images/bg.webp") no-repeat center;
+  background-size: cover;
+  width: 500px;
+}
+
+.feedback__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback__main__container__right-img {
+  height: 500px;
+  width: 500px;
+  align-items: center;
+}
+.contact_submit {
+  background-color: var(--yellow);
+  padding: 10px 30px;
+  border-radius: 6px;
+  color: var(--white);
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.contact_submit:hover {
+  transition: 0.5s ease-in;
+  background-color: var(--hover-color);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .feedback__main__container__right-img {
+    height: 300px;
+    width: 300px;
+  }
+
+  .contact-box-shodow {
+    width: 100%;
+  }
+}
+/* End of Form */
+
+/* Start of Table i.e Surah Information */
+.table__of__surah__name {
+  background: #ff9822;
+  border: 5px solid #ffffff;
+  box-shadow: 4px 4px 10px -2px #0000002e;
+}
+
+.table__of__surah__name p,
+.table__of__surah__name span {
+  color: white;
+}
+.two__row__td_one {
+  width: 15%;
+  border-right: 1px solid white;
+}
+.arabic__font__sura__name__res.area_sub {
+  font-size: 18px;
+}
+
+.two__row__td_two {
+  width: 15%;
+  border-left: 1px solid white;
+}
+.arabic-font {
+  font-family: Al-Qalam-V1;
+  direction: rtl !important;
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.sura__toba__tasmiya__hide {
+  border-top: 1px solid white;
+}
+
+/* Surah */
+.variable_font {
+  font-size: 28px;
+}
+.surah-ayat {
+  line-height: 210% !important;
+  border-bottom: 1px solid;
+}
+
+.arabic-ayats {
+  margin: 2rem 1rem;
+  text-align: end;
+}
+.toggle-btn-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-visibility {
+  visibility: hidden;
+  /* visibility: hidden; */
+}
+.visible-btn-color{
+  color: var(--yellow) !important;
+  background: white !important;
+  border: 2px solid var(--yellow) !important;
+}
+.visible{
+  visibility: hidden;
+}
+.setting-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#isRecording {
+  visibility: hidden;
+}
+
+button.record-btn {
+  background-color: var(--yellow);
+  padding: 5px 15px;
+  border-radius: 6px;
+  color: var(--white);
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button#record:hover {
+  transition: 0.5s ease-in;
+  background-color: var(--hover-color);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+}
+
+/* ============================= End of Get Started Page ====================== */
+
+
+/* ============================= Start of Prediction Source Page ====================== */
+span.prediction_source_green {
+  color: green;
+  font-weight: 900;
+}
+span.wrong-ayat-words {
+  color: red;
+}
+
+/* ============================= End of Prediction Source Page ====================== */

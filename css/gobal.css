@@ -1,0 +1,259 @@
+/* ============================ Start Of Header====================================  */
+
+/* Start Of Navbar */
+.main-navbar {
+  background-color: var(--yellow) !important;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.main-navbar.active {
+  background-color: var(--yellow) !important;
+}
+.main-navbar.active:hover {
+  color: var(--black) !important;
+}
+.nav {
+  background-color: var(--yellow) !important;
+}
+.NavUl {
+  margin: 0px 5px;
+  padding: 3px 15px;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+.NavUl:hover {
+  font-weight: bold;
+  color: var(--yellow);
+  border-bottom: 1px solid var(--yellow);
+}
+.NavUl.active:hover {
+  color: var(--hover-color) !important;
+  border-bottom: 1px solid var(--hover-color);
+}
+.navbar-brand {
+  font-size: 1.4rem;
+  color: var(--white) !important;
+}
+
+.navbar-brand:hover {
+  color: var(--white) !important;
+}
+
+.activePage {
+  font-weight: bold;
+  border-bottom: 1px solid #1c96c5;
+}
+
+.navbar-toggler:focus,
+.navbar-collapse,
+.navbar-toggler {
+  outline: none;
+  text-decoration: none;
+}
+
+.navbar .navbar-toggler:focus {
+  color: var(--white) !important;
+}
+
+.navbar .navbar-toggler:focus {
+  color: var(--light-green) !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Mobile Navbar Start */
+
+.nav-img {
+  cursor: pointer;
+}
+
+.mobile__navbar {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.mobile_version_offcanvas_nav {
+  background-color: var(--white) !important;
+}
+
+.mobile_version_links {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.mobile_navlink {
+  color: var(--yellow);
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.mobile_version_offcanvas_nav-title {
+  font-size: 1.8rem !important;
+}
+
+.mobile_version_offcanvas_nav-title:hover,
+.mobile_navlink:hover {
+  border-bottom: 2px solid var(--yellow) !important;
+  color: var(--yellow) !important;
+}
+
+.mobile__navbar {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+.btn:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.mobile_version_links {
+  display: block;
+  color: var(--black) !important;
+}
+
+.mobile__navbar:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+.mobile_version_offcanvas_nav-title-link {
+  color: var(--black);
+  text-decoration: none;
+}
+.mobile_version_offcanvas_nav-title-link:hover {
+  color: var(--black);
+  text-decoration: none;
+}
+
+/* Mobile Navbar End */
+@media screen and (max-width: 990px) {
+  .mobile__navbar {
+    display: block !important;
+  }
+
+  .NavUl {
+    color: var(--black);
+  }
+
+  .NavUl:hover {
+    color: var(--yellow);
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar-expand-md .navbar-collapse {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .navbar-brand {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ============================ End Of Header ====================================  */
+
+/*  ============================ Start of BreadCrumb  ============================== */
+.main_container_bread_section {
+    min-height: 50vh;
+    background: url("../images/bread2.jpg") no-repeat center;
+    background-size: cover;
+    background-position: center;
+  }
+  .main_container_bread_section_content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+  }
+  
+  .main_heading-black {
+    font-size: 2rem;
+    color: var(--black);
+  }
+  .main_heading-white {
+    font-size: 2rem;
+    color: var(--white);
+  }
+  .section_heading_h4 {
+    font-size: 1.2rem !important;
+    color: var(--yellow) !important;
+  }
+  
+/*  ============================ END of BreadCrumb  ============================== */
+
+
+/*  ============================ Start of Footer Area  ============================== */
+.footer-area-bottom {
+    padding: 5px 0px;
+    margin-top: 5rem;
+    background-color: rgb(255, 152, 34);
+    color: white;
+    font-weight: 700;
+  }
+/*  ============================ END of Footer Area  ============================== */
+
+/* ============================ Start of Section Heading  ============================  */
+.section_heading_h4 {
+    font-size: 1.2rem !important;
+    color: var(--yellow) !important;
+  }
+  
+
+/* ============================ END of Section Heading  ============================  */
+
+
+/* ============================ Start of Button  ============================  */
+
+  .main__button {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .button {
+    /* margin-top: 15px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .button__btn {
+    background-color: var(--yellow);
+    color: var(--white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    padding: 5px 10px;
+    font-weight: 800;
+    border:none;
+    margin: 5px;
+  }
+  .button__btn:hover {
+    transition: 0.5s ease-in;
+    background-color: var(--hover-color);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+  }
+/* ============================ End of Button  ============================  */
+  
