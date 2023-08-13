@@ -224,10 +224,14 @@
 
 /* ============================ Start of Button  ============================  */
 
-  .main__button {
-    display: flex;
-    flex-direction: row;
-  }
+.main__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+li{
+  list-style: none;
+}
   
   .button {
     /* margin-top: 15px; */

@@ -20,7 +20,7 @@
       href="https://misc.dawateislami.net/fonts/fonts.css?build=3.2"
     />
 
-    <title>Home</title>
+    <title>Get Started</title>
   </head>
 
   <body>
@@ -123,15 +123,20 @@
 
     <div class="get-started-section">
       <div class="main_section_component_heading">
-        <h4 class="section_heading_h4">AI</h4>
+        <h4 class="section_heading_h4">Surah Fatiha Memorization</h4>
         <div class="main_heading_container">
-          <h1>Lorem</h1>
+          <h1>Virtual Quran Assistant</h1>
           <img src="./images/sectionimg.png" alt="heading-img" />
           <p class="main_container_choose_section_left-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
-            animi esse praesentium sunt culpa. Quam corporis soluta veniam,
-            molestias nostrum eos ad mollitia hic quibusdam illum tenetur dolor
-            repellendus necessitatibus!
+            The Virtual Quran Assistant is a revolutionary solution that can
+            assist the Muslim community in practicing Quran more effectively. By
+            utilizing this digital tool, users can effortlessly search for
+            particular verses, acquire Quranic vocabulary, and listen to
+            recitations. Additionally, the assistant can offer personalized
+            study plans and progress tracking features to help users remain
+            focused and achieve their learning objectives. Ultimately, this
+            technology has the potential to enhance Quranic study experience and
+            make it more accessible and captivating for Muslims globally.
           </p>
         </div>
       </div>
@@ -218,6 +223,7 @@
                             <td class="sura__toba__tasmiya__hide">
                               <p
                                 class="arabic-font text-center mb-1 arabic__font__sura__tasmia__res p-0"
+                                id="bismillah_ayat"
                               >
                                 بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِیْمِ
                               </p>
@@ -231,72 +237,65 @@
                       </table>
                     </div>
 
-                    <div class="toggle-btn-div">
-                      <div class="main__button">
-                        <button
-                          class="button button__btn"
-                          id="recitation_btn"
-                          onclick="toggleRecitation(true)"
-                        >
-                          Recitation
-                        </button>
-                      </div>
-                      <div class="main__button">
-                        <button
-                          class="button button__btn visible-btn-color"
-                          id="memorization_btn"
-                          onclick="toggleRecitation(false)"
-                        >
-                          Memorization
-                        </button>
+                    <div class="arabic-ayats" id="arabic-ayats-div">
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِیْنَ (1)
+                      </span>
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        الرَّحْمٰنِ الرَّحِیْمِ (2)
+                      </span>
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        مٰلِكِ یَوْمِ الدِّیْنِ (3)
+                      </span>
+
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        اِیَّاكَ نَعْبُدُ وَ اِیَّاكَ نَسْتَعِیْنُ (4)
+                      </span>
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        اِهْدِنَا الصِّرَاطَ الْمُسْتَقِیْمَ (5)
+                      </span>
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        صِرَاطَ الَّذِیْنَ اَنْعَمْتَ عَلَیْهِمْ (6)
+                      </span>
+                      <span class="arabic-font mb-0 variable_font surah-ayat">
+                        غَیْرِ الْمَغْضُوْبِ عَلَیْهِمْ وَ لَا الضَّآلِّیْنَ (7)
+                      </span>
+                    </div>
+                    <div
+                      class="main_container_choose_section"
+                      id="display_prediction"
+                    >
+                      <div class="main_container_choose_section_content">
+                        <div class="main_container_choose_section_right">
+                          <section id="contact">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="margin-set contact-box-shodow">
+                                    <h1 style="text-align: center">
+                                      Predication Score
+                                    </h1>
+                                    <div class="arabic-ayats">
+                                      <ul id="prediction-ul"></ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
                       </div>
                     </div>
-                    <div class="arabic-ayats">
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِیْنَ
-                        </span>
-                        (1)
-                      </span>
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          الرَّحْمٰنِ الرَّحِیْمِ
-                        </span>
-
-                        (2)
-                      </span>
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          مٰلِكِ یَوْمِ الدِّیْنِ
-                        </span>
-
-                        (3)
-                      </span>
-
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          اِیَّاكَ نَعْبُدُ وَ اِیَّاكَ نَسْتَعِیْنُ
-                        </span>
-                        (4)
-                      </span>
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          اِهْدِنَا الصِّرَاطَ الْمُسْتَقِیْمَ
-                        </span>
-                        (5)
-                      </span>
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          صِرَاطَ الَّذِیْنَ اَنْعَمْتَ عَلَیْهِمْ
-                        </span>
-                        (6)
-                      </span>
-                      <span class="arabic-font mb-0 variable_font surah-ayat">
-                        <span class="toggle-visibility">
-                          غَیْرِ الْمَغْضُوْبِ عَلَیْهِمْ وَ لَا الضَّآلِّیْنَ
-                        </span>
-                        (7)
-                      </span>
+                    <div id="spinner-border">
+                      <span>Calculating Result</span>
+                    </div>
+                    <div id="error">
+                      <span>Bad Response, Please try again later</span>
+                    </div>
+                    <div class="main__button">
+                      <div class="button">
+                        <a class="button__btn" id="reset_btn">Reset</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -304,14 +303,6 @@
             </div>
           </section>
         </div>
-      </div>
-    </div>
-
-    <div class="main__button">
-      <div class="button">
-        <a class="button__btn" href="/prediction-source.html"
-          >Check Prediction Source</a
-        >
       </div>
     </div>
 
@@ -352,43 +343,41 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="qari-selection-form">
+            <div class="surah-selection-form">
               <div class="feedback__form">
                 <form>
                   <div>
-                    <h6>Select Qari</h6>
-                    <select class="input-form" name="qari" id="qari" required>
-                      <option value="" disabled="">Select the Qari</option>
-                      <option value="qari-1">Qari 1</option>
-                      <option value="qari-2">Qari 2</option>
-                      <option value="qari-3">Qari 3</option>
-                      <option value="qari-4">Qari 4</option>
+                    <h6>Select surah</h6>
+                    <select class="input-form" name="surah" id="surah" required>
+                      <option value="" disabled="">Select the surah</option>
+                      <option value="1">surah 1 - Al Fatiha</option>
                     </select>
                   </div>
 
                   <div>
                     <h6>Select Ayat</h6>
                     <select class="input-form" name="ayat" id="ayat" required>
-                      <option value="0" disabled="">Select the Qari</option>
-                      <option value="ayat-1">
+                      <option value="0" disabled="">Select Ayat</option>
+
+                      <option value="1">
                         Ayat (1) - اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِیْنَ
                       </option>
-                      <option value="ayat-2">
+                      <option value="2">
                         Ayat (2) - الرَّحْمٰنِ الرَّحِیْمِ
                       </option>
-                      <option value="ayat-3">
+                      <option value="3">
                         Ayat (3) - مٰلِكِ یَوْمِ الدِّیْنِ
                       </option>
-                      <option value="ayat-4">
+                      <option value="4">
                         Ayat (4) - اِیَّاكَ نَعْبُدُ وَ اِیَّاكَ نَسْتَعِیْنُ
                       </option>
-                      <option value="ayat-5">
+                      <option value="5">
                         Ayat (5) - اِهْدِنَا الصِّرَاطَ الْمُسْتَقِیْمَ
                       </option>
-                      <option value="ayat-6">
+                      <option value="6">
                         Ayat (6) - صِرَاطَ الَّذِیْنَ اَنْعَمْتَ عَلَیْهِمْ
                       </option>
-                      <option value="ayat-7">
+                      <option value="7">
                         Ayat (7) - غَیْرِ الْمَغْضُوْبِ عَلَیْهِمْ وَ لَا
                         الضَّآلِّیْنَ
                       </option>
@@ -420,16 +409,20 @@
                     <div id="upload-file-div">
                       <h6>Upload File</h6>
                       <input
-                      type="file"
-                      name="file"
-                      id="file"
-                      accept="audio/mp3,audio/*;capture=microphone"
-                    />
+                        type="file"
+                        name="file"
+                        id="file"
+                        accept="audio/mp3,audio/*;capture=microphone"
+                      />
                     </div>
                     <div id="record-file-div">
                       <h6>Record Audio</h6>
                       <div>
-                        <button type="button" id="record" class="btn record-btn">
+                        <button
+                          type="button"
+                          id="record"
+                          class="btn record-btn"
+                        >
                           Record
                         </button>
                         <button
@@ -440,21 +433,20 @@
                         >
                           Stop
                         </button>
-  
+
                         <p id="isRecording">Recording</p>
                         <audio id="recordedAudio"></audio>
                         <a href="#" id="downloadLink" style="display: none"
                           >Download</a
                         >
                       </div>
-                    </div>                   
-                   
+                    </div>
                   </div>
 
                   <div class="modal-footer">
                     <button
                       data-bs-dismiss="modal"
-                      type="submit"
+                      type="button"
                       value="Send"
                       class="contact_submit"
                       id="formSubmit"
@@ -472,23 +464,13 @@
 
     <!-- End of Setting Modal -->
     <script src="./js/app.js"></script>
-    <script src="./js/recorder.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/ffmpeg/0.11.6/ffmpeg.min.js"
-      integrity="sha512-91IRkhfv1tLVYAdH5KTV+KntIZP/7VzQ9E/qbihXFSj0igeacWWB7bQrdiuaJVMXlCVREL4Z5r+3C4yagAlwEw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/ffmpeg/0.11.6/046d0074eee1d99a674a.min.js"
-      integrity="sha512-ZihN1SbI15WLmWzDMJoxNLLaoIAX+Z68I8icft2xk2x6ELr6/1N2rRW7e92D+9V0npsbNJxbWxYyEPU9kAiNIA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <!-- <script src="./js/recorder.js"></script> -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>
