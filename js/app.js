@@ -201,15 +201,18 @@ formSubmit.addEventListener("click", (e) => {
 //     );
 //   }
 
+//   let encodedResults = encodeURIComponent(JSON.stringify({}));
 //   // Use Promise.all to wait for all fetch promises to complete
 //   Promise.all(fetch_promises)
 //     .then(() => {
-//       const encodedResults = encodeURIComponent(JSON.stringify(all_results));
-//       console.log(encodedResults);
-
-//       // Redirect to the results page with the encoded results
-//       window.location.href = "/prediction-source.html?results=" + encodedResults;
+//       encodedResults = encodeURIComponent(JSON.stringify(all_results));
 //     });
+
+//     console.log(encodedResults);
+
+//     console.log("Redirecting to prediction sources page");
+//     // Redirect to the results page with the encoded results
+//     window.location.href = "/prediction-source.html?results=" + encodedResults;
 // });
 
 
@@ -241,7 +244,7 @@ document.getElementById("check_prediction").addEventListener("click", async (e) 
       console.log(data);
       all_results.push(data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
 
