@@ -161,6 +161,7 @@ formSubmit.addEventListener("click", async (e) => {
     );
     const data = response.data;
     apiResult = data;
+    console.log(data);
     calculatedResult(apiResult);
 
     console.log(apiResult, "apiResult");
@@ -299,3 +300,23 @@ const calculatedResult = (data) => {
   }
 };
 
+
+// logic for audio player
+const selected_qari = document.getElementById('qari');
+const selected_ayat = document.getElementById('ayat');
+const audio_player = document.getElementById('qariAudio');
+
+selected_qari.addEventListener('change', updateAudioPlayer);
+selected_ayat.addEventListener('change', updateAudioPlayer);
+
+function updateAudioPlayer() {
+  let qari = selected_qari.value;
+  let ayat = selected_ayat.value;
+  ayat = parseInt(ayat) + 1;
+  ayat = ayat.toString();
+  const audioSrc = `qari_examples/${qari}_${ayat}.wav`;
+  audio_player.src = audioSrc;
+  audio_player.load();
+}
+
+updateAudioPlayer();  // update audio player on page load
