@@ -2,6 +2,13 @@
 var myNav = document.getElementById("web_navbar");
 const getStartedBtn = document.getElementById("getStartedBtn");
 
+/**
+ * Changes the background color of the navigation bar and
+ * the "Get Started" button based on the scroll position of
+ * the window.
+ *
+ * @return {void} No return value.
+ */
 const changeBackground = () => {
   if (window.scrollY >= 80) {
     myNav.style.backgroundColor = "#ff9822";
@@ -22,6 +29,12 @@ const uploadBtn = document.querySelector("#upload_btn");
 const uploadFileDiv = document.querySelector("#upload-file-div");
 const recordFileDiv = document.querySelector("#record-file-div");
 
+/**
+ * Toggles the display of the upload and record buttons and file divs based on the given isUpload parameter.
+ * @param {boolean} isUpload - A boolean value indicating whether the upload button should be displayed.
+ * @return {undefined} There is no return value for this function.
+ * This code defines a function called toggleUpload that takes a boolean parameter isUpload. If isUpload is true, it modifies the HTML elements by adding and removing CSS classes and changing the display style of certain elements. If isUpload is false, it performs the opposite modifications.
+ */
 const toggleUpload = (isUpload) => {
   if (isUpload === true) {
     uploadBtn.classList.remove("visible-btn-color");
@@ -39,6 +52,9 @@ const toggleUpload = (isUpload) => {
 toggleUpload(true);
 
 // ============ Record Audio ================
+/*
+  * This code snippet is using the navigator.mediaDevices.getUserMedia() method to prompt the user for permission to access their audio. If permission is granted, it then calls the handlerFunction() with the audio stream as an argument. The handlerFunction() creates a new MediaRecorder object and sets its ondataavailable property to a function that pushes the audio data to the audioChunks array. It then calls the start() method on the MediaRecorder object to begin recording the audio stream. When the user clicks the stop button, the handlerFunction() calls the stop() method on the MediaRecorder object to stop recording the audio stream. The MediaRecorder object then fires the ondataavailable event and the handlerFunction() pushes the audio data to the audioChunks array. The handlerFunction() then creates a new Blob object from the audioChunks array and sets the src property of the recordedAudio audio element to a URL created from the Blob object.
+*/
 var recordAudioBlob;
 
 navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
@@ -46,6 +62,10 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
 });
 var isRecording = document.getElementById("isRecording");
 
+/**
+ * Handles the stream and records audio chunks.
+ * @param {MediaStream} stream - The stream object.
+ */
 function handlerFunction(stream) {
   rec = new MediaRecorder(stream);
   rec.ondataavailable = (e) => {
@@ -61,10 +81,23 @@ function handlerFunction(stream) {
   };
 }
 
+/**
+ * Sends the provided data to the server.
+ * @param {type} data - The data to be sent.
+ * @return {undefined} This function does not return a value.
+ */
+
 function sendData(data) {
   recordAudioBlob = data;
   console.log(data);
 }
+
+
+/**
+ * Sets up the onclick event handler for the record button.
+ * @param {Event} e - The click event.
+ * @return {void} No return value.
+ */
 record.onclick = (e) => {
   isRecording.style.visibility = "visible";
   record.disabled = true;
@@ -73,6 +106,12 @@ record.onclick = (e) => {
   audioChunks = [];
   rec.start();
 };
+
+/**
+ * Handles the click event for the stopRecord button.
+ * @param {Event} e - The click event object.
+ * @return {undefined} This function does not return a value.
+ */
 stopRecord.onclick = (e) => {
   isRecording.style.visibility = "hidden";
   record.disabled = false;
@@ -114,6 +153,7 @@ if ((arabic_ayats.style.display = "block")) {
 var loading = false;
 let apiResult;
 
+// Event listener for form submit button click
 formSubmit.addEventListener("click", async (e) => {
   e.preventDefault(); // prevent default submit behavior
 
@@ -181,20 +221,14 @@ formSubmit.addEventListener("click", async (e) => {
   }
 });
 
-const predictionUl = document.getElementById("prediction-ul");
-const demoData = {
-  actual_ayat_words: ["Ar-Rahmaan", "Ar-Raheem"],
-  ayat_number: "3",
-  correctness_levels: ["medium", "low"],
-  predictions: [
-    ["Ar-Rahmaan", 0.9917491674423218],
-    ["Yumid", 0.7654581069946289],
-  ],
-  surah_number: "1",
-  time_request: 1691746637,
-  version: "0.1",
-};
 
+const predictionUl = document.getElementById("prediction-ul");
+
+/**
+ * Translates an English word into Arabic.
+ * @param {string} word - The English word to be translated.
+ * @return {string} The Arabic translation of the word.
+ */
 const wordInArabic = (word) => {
   let arabicWord = "";
   if (word === "Alhamdu") {
@@ -250,6 +284,15 @@ const wordInArabic = (word) => {
   return arabicWord;
 };
 
+
+
+/**
+ * Generates the content for a <li> element that displays word predictions.
+ * @param {string} getWord - The word to be displayed in the <span> element with color.
+ * @param {string} level - The correctness level of the word prediction. Possible values are "low", "medium", or "high".
+ * @param {number} predictionPer - The score of the word prediction.
+ * @return {string} The HTML content for the <li> element.
+ */
 const spanLiContent = (getWord, level, predictionPer) => {
   let color = "green";
   if (level == "low") {
@@ -284,6 +327,11 @@ const spanLiContent = (getWord, level, predictionPer) => {
 </li>`;
 };
 
+/**
+ * Calculates the result based on the given data.
+ * @param {object} data - The data containing actual_ayat_words, correctness_levels, and predictions.
+ * @return {undefined} This function does not return a value.
+ */
 const calculatedResult = (data) => {
   const { actual_ayat_words, correctness_levels, predictions } = data;
   for (let i = 0; i < actual_ayat_words.length; i++) {
